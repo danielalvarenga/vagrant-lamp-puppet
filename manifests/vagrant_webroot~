@@ -1,0 +1,97 @@
+<VirtualHost *:80>
+  ServerName app.local
+  DocumentRoot /var/www
+  <Directory /var/www>
+    DirectoryIndex index.php index.html
+    AllowOverride All
+    Order allow,deny
+    Allow from all
+  </Directory>
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerAdmin webmaster@localhost
+    ServerName voucher.dev
+    DirectoryIndex index.php
+    DocumentRoot /vagrant/htdocs/dev/voucher
+    <Directory />
+        Options FollowSymLinks
+        AllowOverride All
+    </Directory>
+    <Directory /vagrant/htdocs/dev/voucher>
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride All
+        Order allow,deny
+        allow from all
+    </Directory>
+    ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/
+    <Directory "/usr/lib/cgi-bin">
+        AllowOverride All
+        Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch
+        Order allow,deny
+        Allow from all
+    </Directory>
+    ErrorLog ${APACHE_LOG_DIR}/voucher_error.log
+    # Possible values include: debug, info, notice, warn, error, crit,
+    # alert, emerg.
+    LogLevel warn
+    CustomLog ${APACHE_LOG_DIR}/voucher_access.log combined
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerAdmin webmaster@localhost
+    ServerName fulfillment.dev
+    DirectoryIndex index.php
+    DocumentRoot /vagrant/htdocs/dev/fulfillment
+    <Directory />
+        Options FollowSymLinks
+        AllowOverride All
+    </Directory>
+    <Directory /vagrant/htdocs/dev/fulfillment>
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride All
+        Order allow,deny
+        allow from all
+    </Directory>
+    ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/
+    <Directory "/usr/lib/cgi-bin">
+        AllowOverride All
+        Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch
+        Order allow,deny
+        Allow from all
+    </Directory>
+    ErrorLog ${APACHE_LOG_DIR}/superbonus_error.log
+    # Possible values include: debug, info, notice, warn, error, crit,
+    # alert, emerg.
+    LogLevel warn
+    CustomLog ${APACHE_LOG_DIR}/superbonus_access.log combined
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerAdmin webmaster@localhost
+    ServerName whirlpool.dev
+    DirectoryIndex index.php
+    DocumentRoot /vagrant/htdocs/dev/whirlpool
+    <Directory />
+        Options FollowSymLinks
+        AllowOverride All
+    </Directory>
+    <Directory /vagrant/htdocs/dev/whirlpool>
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride All
+        Order allow,deny
+        allow from all
+    </Directory>
+    ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/
+    <Directory "/usr/lib/cgi-bin">
+        AllowOverride All
+        Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch
+        Order allow,deny
+        Allow from all
+    </Directory>
+    ErrorLog ${APACHE_LOG_DIR}/whirlpool_error.log
+    # Possible values include: debug, info, notice, warn, error, crit,
+    # alert, emerg.
+    LogLevel warn
+    CustomLog ${APACHE_LOG_DIR}/whirlpool_access.log combined
+</VirtualHost>
