@@ -8,6 +8,7 @@ Ubuntu 12.04 amd64
 * php5
 * php5-cli
 * php5-mysql
+* php5-sybase
 * php-pear - installed packages: phpunit and its dependencies
 * php5-dev
 * php5-gd
